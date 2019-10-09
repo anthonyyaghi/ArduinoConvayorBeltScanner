@@ -3,18 +3,18 @@
 #include "Utils.h"
 
 Point emptyBelt[SENSOR_COUNT];
-double volume = 0.;
+double area = 0.;
 
 void setup() {
-  scanBelt(emptyBelt, 2, 2);
+  initBelt(emptyBelt, 2, 2);
   Serial.begin(9600);
 }
 
 void loop() {
   Point scanRes[SENSOR_COUNT];
   scanBelt(scanRes, 1, 1);
-  volume += calculateArea(scanRes, emptyBelt) * getDeltaD();
-  Serial.print("Volume: ");
-  Serial.println(volume);
+  area = calculateArea(scanRes, emptyBelt) * getDeltaD();
+  Serial.print("are: ");
+  Serial.println(area);
   delay(1000);
 }

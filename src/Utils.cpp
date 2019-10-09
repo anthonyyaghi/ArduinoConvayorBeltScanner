@@ -30,6 +30,14 @@ void scanBelt(Point* points, int min, int max)
 {
     for(int i = 0; i < SENSOR_COUNT; i++)
     {
+        points[i].y = random(min, max);
+    }
+}
+
+void initBelt(Point* points, int min, int max)
+{
+    for(int i = 0; i < SENSOR_COUNT; i++)
+    {
         points[i] = Point{(i * SENSOR_SPACING), random(min, max)};
     }
 }
