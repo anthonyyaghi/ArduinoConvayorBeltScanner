@@ -4,6 +4,7 @@
 
 Point emptyBelt[SENSOR_COUNT];
 double area = 0.;
+Point scanRes[SENSOR_COUNT];
 
 void setup() {
   initBelt(emptyBelt, 2, 2);
@@ -11,7 +12,6 @@ void setup() {
 }
 
 void loop() {
-  Point scanRes[SENSOR_COUNT];
   scanBelt(scanRes, 1, 1);
   area = calculateArea(scanRes, emptyBelt) * getDeltaD();
   Serial.print("are: ");

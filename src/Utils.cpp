@@ -1,5 +1,6 @@
 #include "Utils.h"
 #include "Arduino.h"
+#include "sensors.h"
 
 double getLineLength(Point A, Point B)
 {
@@ -30,7 +31,7 @@ void scanBelt(Point* points, int min, int max)
 {
     for(int i = 0; i < SENSOR_COUNT; i++)
     {
-        points[i].y = random(min, max);
+        points[i].y = readDistance(i);
     }
 }
 
@@ -38,7 +39,7 @@ void initBelt(Point* points, int min, int max)
 {
     for(int i = 0; i < SENSOR_COUNT; i++)
     {
-        points[i] = Point{(i * SENSOR_SPACING), random(min, max)};
+        points[i] = Point{(i * SENSOR_SPACING), readDistance(i)};
     }
 }
 
